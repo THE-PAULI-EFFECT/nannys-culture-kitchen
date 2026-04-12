@@ -1,0 +1,175 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Nanny's Culture Kitchen — Dark-first Warm Cinematic Theme */
+
+@layer base {
+  :root {
+    /* Dark mode IS default — warm charcoal bg, cream text */
+    --background: 25 20% 6%;
+    --foreground: 36 33% 92%;
+
+    --card: 25 16% 9%;
+    --card-foreground: 36 33% 92%;
+
+    --popover: 25 16% 9%;
+    --popover-foreground: 36 33% 92%;
+
+    --primary: 38 75% 50%;
+    --primary-foreground: 25 20% 6%;
+
+    --secondary: 25 12% 14%;
+    --secondary-foreground: 36 33% 92%;
+
+    --muted: 25 10% 14%;
+    --muted-foreground: 30 8% 55%;
+
+    --accent: 142 45% 38%;
+    --accent-foreground: 36 33% 96%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 36 33% 96%;
+
+    --border: 25 10% 16%;
+    --input: 25 10% 16%;
+    --ring: 38 75% 50%;
+
+    --radius: 0.375rem;
+
+    /* Brand tokens */
+    --brand-gold: 38 75% 50%;
+    --brand-copper: 24 70% 45%;
+    --brand-green: 142 45% 38%;
+    --brand-cream: 36 33% 92%;
+    --brand-charcoal: 25 20% 6%;
+
+    --sidebar-background: 25 16% 7%;
+    --sidebar-foreground: 36 33% 92%;
+    --sidebar-primary: 38 75% 50%;
+    --sidebar-primary-foreground: 25 20% 6%;
+    --sidebar-accent: 25 12% 14%;
+    --sidebar-accent-foreground: 36 33% 92%;
+    --sidebar-border: 25 10% 16%;
+    --sidebar-ring: 38 75% 50%;
+  }
+
+  .light {
+    --background: 36 33% 97%;
+    --foreground: 25 20% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 25 20% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 20% 8%;
+
+    --primary: 38 75% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 36 20% 94%;
+    --secondary-foreground: 25 20% 8%;
+
+    --muted: 36 20% 94%;
+    --muted-foreground: 25 10% 44%;
+
+    --accent: 142 45% 38%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 12% 88%;
+    --input: 30 12% 88%;
+    --ring: 38 75% 50%;
+
+    --sidebar-background: 36 25% 96%;
+    --sidebar-foreground: 25 20% 8%;
+    --sidebar-primary: 38 75% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 36 20% 94%;
+    --sidebar-accent-foreground: 25 20% 8%;
+    --sidebar-border: 30 12% 88%;
+    --sidebar-ring: 38 75% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-serif tracking-tight;
+  }
+  
+  .recipe-card {
+    @apply transition-all duration-200 hover:shadow-lg;
+  }
+  
+  .recipe-card-image {
+    @apply aspect-[4/3] w-full object-cover rounded-t transition-transform duration-200;
+  }
+  
+  .recipe-card:hover .recipe-card-image {
+    @apply scale-[1.03];
+  }
+
+  .category-badge {
+    @apply inline-flex items-center rounded px-2 py-0.5 text-xs font-medium transition-colors;
+  }
+  
+  .meal-plan-day {
+    @apply border rounded-md p-2 min-h-[100px] bg-card shadow-sm;
+  }
+  
+  .meal-slot {
+    @apply p-2 rounded border-dashed border-2 my-1 min-h-[40px] transition-colors;
+  }
+}
+
+/* Cinematic intro animations */
+@layer utilities {
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(38, 75%, 50%), hsl(24, 70%, 45%), hsl(38, 75%, 60%));
+  }
+
+  .text-gradient-green {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(142, 45%, 38%), hsl(142, 55%, 48%));
+  }
+
+  .bg-warm-gradient {
+    background: linear-gradient(180deg, hsl(25, 20%, 6%) 0%, hsl(25, 16%, 10%) 100%);
+  }
+
+  .border-gold {
+    border-color: hsl(38, 75%, 50%);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 20px rgba(196, 155, 52, 0.15), 0 0 60px rgba(196, 155, 52, 0.05);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 20px rgba(56, 142, 80, 0.15), 0 0 60px rgba(56, 142, 80, 0.05);
+  }
+
+  /* Senior-friendly: larger tap targets, higher contrast on hover */
+  .senior-tap {
+    @apply min-h-[48px] min-w-[48px];
+  }
+}
