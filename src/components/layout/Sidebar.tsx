@@ -21,7 +21,7 @@ const Sidebar = () => {
       <SidebarHeader className="py-5 text-center">
         <Link to="/" className="flex items-center justify-center gap-2">
           <UtensilsCrossed className="h-6 w-6 text-recipe-orange" />
-          <h1 className="font-serif text-lg font-medium">Recipe Box</h1>
+          <h1 className="font-heading text-lg font-medium">Recipe Box</h1>
         </Link>
       </SidebarHeader>
       
@@ -105,3 +105,4 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+

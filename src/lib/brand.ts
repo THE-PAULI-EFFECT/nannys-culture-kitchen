@@ -1,4 +1,4 @@
-// Nanny's Culture Kitchen — Brand Constants
+// Nanny's Culture Kitchen — Brand Constants (Mardi Gras / Creole Futuristic)
 
 export const BRAND = {
   name: "Nanny's",
@@ -16,16 +16,17 @@ export const BRAND = {
       "Bringing the finest plant-based soul food and Latin American cuisine to every corner of America — one pop-up kitchen at a time.",
   },
   colors: {
-    gold: "hsl(38, 75%, 50%)",
-    green: "hsl(142, 55%, 35%)",
-    copper: "hsl(20, 70%, 45%)",
-    charcoal: "hsl(25, 20%, 6%)",
-    cream: "hsl(38, 40%, 95%)",
-    warmWhite: "hsl(30, 20%, 97%)",
+    purple: "hsl(270, 65%, 40%)",
+    gold: "hsl(45, 90%, 55%)",
+    green: "hsl(155, 60%, 35%)",
+    copper: "hsl(15, 80%, 50%)",
+    magenta: "hsl(320, 75%, 55%)",
+    bayou: "hsl(240, 15%, 8%)",
+    cream: "hsl(45, 30%, 92%)",
   },
   fonts: {
-    heading: "'Playfair Display', serif",
-    body: "'Inter', sans-serif",
+    heading: "'Sora', sans-serif",
+    body: "'DM Sans', sans-serif",
   },
   social: {
     twitter: "",
@@ -39,7 +40,7 @@ export const CHEF_TYPES = {
     label: "Soul Food Kitchen",
     description: "Afro-Caribbean plant-based soul food at its finest",
     chefGender: "male" as const,
-    colorAccent: "copper",
+    colorAccent: "gold",
     route: "/soul-food",
   },
   latin: {
@@ -52,11 +53,11 @@ export const CHEF_TYPES = {
   },
 } as const;
 
-export const DANNY_MEYER_PRINCIPLES = {
+export const NANNYS_PRINCIPLES = {
   hospitalityFirst:
-    "Hospitality is the foundation of our business philosophy. It's how the delivery of a product makes its recipient feel.",
+    "Food is how we take care of people. Every plate tells a story, every recipe carries a memory.",
   settingTheTable:
-    "The way you set the table—physically and emotionally—determines the experience.",
+    "When you sit at our table, you're family. The table is set with love before the first dish arrives.",
   enlightenedHospitality: [
     "Caring for each other (staff)",
     "Caring for our guests",
@@ -64,10 +65,10 @@ export const DANNY_MEYER_PRINCIPLES = {
     "Caring for our suppliers",
     "Caring for our investors",
   ],
-  serviceVsHospitality:
-    "Service is the technical delivery of a product. Hospitality is how the delivery makes the recipient feel.",
-  errorRecovery:
-    "The road to success is paved with mistakes well handled. Err on the side of generosity.",
+  culturalRoots:
+    "We honor the traditions that made us — from Washington, Louisiana to every Mexican state.",
+  sacredException:
+    "Everything is plant-based. Except Nanny's Southern Fried Chicken. Because Nanny wouldn't have it any other way.",
   consistency:
     "The secret isn't one big thing. It's a thousand small things done with consistent excellence.",
 } as const;

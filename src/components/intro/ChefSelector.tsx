@@ -75,7 +75,7 @@ const ChefSelector = () => {
               </div>
 
               {/* Text */}
-              <h3 className={`font-serif text-xl font-semibold ${chef.accentClass}`}>
+              <h3 className={`font-heading text-xl font-semibold ${chef.accentClass}`}>
                 {chef.title}
               </h3>
               <p className="text-xs text-muted-foreground tracking-wider uppercase mt-1">
@@ -98,3 +98,4 @@ const ChefSelector = () => {
 };
 
 export default ChefSelector;
+

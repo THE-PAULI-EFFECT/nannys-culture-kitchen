@@ -38,7 +38,7 @@ const LatinKitchen = () => {
             <ArrowLeft className="h-4 w-4" />
             <span className="text-sm">Back</span>
           </Link>
-          <span className="font-serif text-lg font-semibold text-gradient-green">Latin Kitchen</span>
+          <span className="font-heading text-lg font-semibold text-gradient-green">Latin Kitchen</span>
           <div className="w-16" />
         </div>
       </header>
@@ -55,7 +55,7 @@ const LatinKitchen = () => {
             <p className="text-xs tracking-[0.25em] uppercase text-brand-green/50 font-mono mb-3">
               State by State — México
             </p>
-            <h1 className="font-serif text-3xl md:text-5xl font-bold">
+            <h1 className="font-heading text-3xl md:text-5xl font-bold">
               <span className="text-gradient-green">Latin</span> Kitchen
             </h1>
             <p className="mt-3 text-sm text-muted-foreground max-w-lg mx-auto">
@@ -121,7 +121,7 @@ const LatinKitchen = () => {
               if (!state) return null;
               return (
                 <div>
-                  <span className="font-serif text-sm font-medium">{state.name}</span>
+                  <span className="font-heading text-sm font-medium">{state.name}</span>
                   <span className="text-xs text-muted-foreground ml-2">— {state.nickname}</span>
                   <span className="text-xs text-brand-green/70 ml-2">Signature: {state.signature}</span>
                 </div>
@@ -189,7 +189,7 @@ function LatinRecipeCard({ recipe, index }: { recipe: Recipe; index: number }) {
             </div>
           )}
           <div className="absolute bottom-3 left-3">
-            <p className="text-white font-serif text-lg font-semibold leading-tight drop-shadow-lg">
+            <p className="text-white font-heading text-lg font-semibold leading-tight drop-shadow-lg">
               {recipe.title}
             </p>
           </div>
@@ -216,3 +216,4 @@ function LatinRecipeCard({ recipe, index }: { recipe: Recipe; index: number }) {
 }
 
 export default LatinKitchen;
+

@@ -2,6 +2,8 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { soulFoodRecipes } from "@/data/soul-food-recipes";
 import { Clock, Users, Star, Leaf, ArrowLeft, ChefHat } from "lucide-react";
+import AllergenScanner from "@/components/AllergenScanner";
+import RecipeShare from "@/components/RecipeShare";
 
 const SoulFoodRecipeDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -11,7 +13,7 @@ const SoulFoodRecipeDetail = () => {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
-          <h1 className="font-serif text-2xl mb-4">Recipe Not Found</h1>
+          <h1 className="font-heading text-2xl mb-4">Recipe Not Found</h1>
           <Link to="/soul-food" className="text-sm text-brand-gold hover:underline">← Back to Soul Food Kitchen</Link>
         </div>
       </div>
@@ -27,6 +29,15 @@ const SoulFoodRecipeDetail = () => {
             <ArrowLeft className="h-4 w-4" />
             <span className="text-sm">Soul Food Kitchen</span>
           </Link>
+          <RecipeShare
+            recipe={{
+              title: recipe.title,
+              description: recipe.description,
+              ingredients: recipe.ingredients.map((i) => `${i.amount} ${i.unit} ${i.item}`),
+              instructions: recipe.instructions,
+              image: recipe.image,
+            }}
+          />
         </div>
       </header>
 
@@ -56,7 +67,7 @@ const SoulFoodRecipeDetail = () => {
             <span className="text-xs text-muted-foreground">{recipe.category}</span>
           </div>
 
-          <h1 className="font-serif text-3xl md:text-4xl font-bold">{recipe.title}</h1>
+          <h1 className="font-heading text-3xl md:text-4xl font-bold">{recipe.title}</h1>
           <p className="mt-2 text-muted-foreground leading-relaxed">{recipe.description}</p>
 
           {/* Meta row */}
@@ -84,7 +95,7 @@ const SoulFoodRecipeDetail = () => {
           {/* Story */}
           {recipe.story && (
             <div className="mt-8 p-4 rounded-lg bg-brand-gold/5 border border-brand-gold/10">
-              <p className="font-serif italic text-sm text-brand-cream/70 leading-relaxed">{recipe.story}</p>
+              <p className="font-heading italic text-sm text-brand-cream/70 leading-relaxed">{recipe.story}</p>
             </div>
           )}
 
@@ -92,7 +103,7 @@ const SoulFoodRecipeDetail = () => {
           <div className="mt-10 grid md:grid-cols-[1fr_1.5fr] gap-10">
             {/* Ingredients */}
             <div>
-              <h2 className="font-serif text-lg font-semibold mb-4 text-brand-gold">Ingredients</h2>
+              <h2 className="font-heading text-lg font-semibold mb-4 text-brand-gold">Ingredients</h2>
               <ul className="space-y-2">
                 {recipe.ingredients.map((ing, i) => (
                   <li
@@ -118,11 +129,18 @@ const SoulFoodRecipeDetail = () => {
                   <span className="font-medium">Allergens:</span> {recipe.allergens.join(", ")}
                 </p>
               )}
+              {/* Allergen Scanner */}
+              <div className="mt-4 pt-4 border-t border-border/30">
+                <AllergenScanner
+                  ingredients={recipe.ingredients.map((i) => i.item)}
+                  declaredAllergens={recipe.allergens}
+                />
+              </div>
             </div>
 
             {/* Instructions */}
             <div>
-              <h2 className="font-serif text-lg font-semibold mb-4 text-brand-gold">Instructions</h2>
+              <h2 className="font-heading text-lg font-semibold mb-4 text-brand-gold">Instructions</h2>
               <ol className="space-y-4">
                 {recipe.instructions.map((step, i) => (
                   <li key={i} className="flex gap-3 text-sm leading-relaxed">
@@ -139,7 +157,7 @@ const SoulFoodRecipeDetail = () => {
           {/* Nutrition */}
           {recipe.nutritionInfo && (
             <div className="mt-10 p-4 rounded-lg border border-border/50">
-              <h3 className="font-serif text-sm font-medium mb-3">Nutrition per Serving</h3>
+              <h3 className="font-heading text-sm font-medium mb-3">Nutrition per Serving</h3>
               <div className="grid grid-cols-5 gap-4 text-center">
                 {[
                   { label: "Calories", value: recipe.nutritionInfo.calories, unit: "kcal" },
@@ -172,3 +190,4 @@ const SoulFoodRecipeDetail = () => {
 };
 
 export default SoulFoodRecipeDetail;
+

@@ -1,99 +1,101 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Nanny's Culture Kitchen — Dark-first Warm Cinematic Theme */
+/* Nanny's Culture Kitchen — Mardi Gras Futuristic / Creole New Orleans Theme */
 
 @layer base {
   :root {
-    /* Dark mode IS default — warm charcoal bg, cream text */
-    --background: 25 20% 6%;
-    --foreground: 36 33% 92%;
+    /* Dark mode IS default — deep bayou black bg, warm cream text */
+    --background: 240 15% 8%;
+    --foreground: 45 30% 92%;
 
-    --card: 25 16% 9%;
-    --card-foreground: 36 33% 92%;
+    --card: 255 12% 11%;
+    --card-foreground: 45 30% 92%;
 
-    --popover: 25 16% 9%;
-    --popover-foreground: 36 33% 92%;
+    --popover: 255 12% 11%;
+    --popover-foreground: 45 30% 92%;
 
-    --primary: 38 75% 50%;
-    --primary-foreground: 25 20% 6%;
+    --primary: 270 65% 40%;
+    --primary-foreground: 45 30% 96%;
 
-    --secondary: 25 12% 14%;
-    --secondary-foreground: 36 33% 92%;
+    --secondary: 255 10% 15%;
+    --secondary-foreground: 45 30% 92%;
 
-    --muted: 25 10% 14%;
-    --muted-foreground: 30 8% 55%;
+    --muted: 255 8% 15%;
+    --muted-foreground: 260 6% 50%;
 
-    --accent: 142 45% 38%;
-    --accent-foreground: 36 33% 96%;
+    --accent: 45 90% 55%;
+    --accent-foreground: 240 15% 8%;
 
     --destructive: 0 72% 51%;
-    --destructive-foreground: 36 33% 96%;
+    --destructive-foreground: 45 30% 96%;
 
-    --border: 25 10% 16%;
-    --input: 25 10% 16%;
-    --ring: 38 75% 50%;
+    --border: 260 8% 16%;
+    --input: 260 8% 16%;
+    --ring: 270 65% 50%;
 
     --radius: 0.375rem;
 
-    /* Brand tokens */
-    --brand-gold: 38 75% 50%;
-    --brand-copper: 24 70% 45%;
-    --brand-green: 142 45% 38%;
-    --brand-cream: 36 33% 92%;
-    --brand-charcoal: 25 20% 6%;
+    /* Mardi Gras brand tokens */
+    --brand-purple: 270 65% 40%;
+    --brand-gold: 45 90% 55%;
+    --brand-green: 155 60% 35%;
+    --brand-copper: 15 80% 50%;
+    --brand-magenta: 320 75% 55%;
+    --brand-cream: 45 30% 92%;
+    --brand-bayou: 240 15% 8%;
 
-    --sidebar-background: 25 16% 7%;
-    --sidebar-foreground: 36 33% 92%;
-    --sidebar-primary: 38 75% 50%;
-    --sidebar-primary-foreground: 25 20% 6%;
-    --sidebar-accent: 25 12% 14%;
-    --sidebar-accent-foreground: 36 33% 92%;
-    --sidebar-border: 25 10% 16%;
-    --sidebar-ring: 38 75% 50%;
+    --sidebar-background: 255 12% 9%;
+    --sidebar-foreground: 45 30% 92%;
+    --sidebar-primary: 270 65% 40%;
+    --sidebar-primary-foreground: 45 30% 96%;
+    --sidebar-accent: 255 10% 15%;
+    --sidebar-accent-foreground: 45 30% 92%;
+    --sidebar-border: 260 8% 16%;
+    --sidebar-ring: 270 65% 50%;
   }
 
   .light {
-    --background: 36 33% 97%;
-    --foreground: 25 20% 8%;
+    --background: 45 25% 97%;
+    --foreground: 240 15% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 25 20% 8%;
+    --card-foreground: 240 15% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 25 20% 8%;
+    --popover-foreground: 240 15% 10%;
 
-    --primary: 38 75% 50%;
+    --primary: 270 65% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 36 20% 94%;
-    --secondary-foreground: 25 20% 8%;
+    --secondary: 45 15% 94%;
+    --secondary-foreground: 240 15% 10%;
 
-    --muted: 36 20% 94%;
-    --muted-foreground: 25 10% 44%;
+    --muted: 45 15% 94%;
+    --muted-foreground: 260 8% 44%;
 
-    --accent: 142 45% 38%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 45 90% 50%;
+    --accent-foreground: 240 15% 8%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 30 12% 88%;
-    --input: 30 12% 88%;
-    --ring: 38 75% 50%;
+    --border: 260 8% 88%;
+    --input: 260 8% 88%;
+    --ring: 270 65% 45%;
 
-    --sidebar-background: 36 25% 96%;
-    --sidebar-foreground: 25 20% 8%;
-    --sidebar-primary: 38 75% 50%;
+    --sidebar-background: 45 20% 96%;
+    --sidebar-foreground: 240 15% 10%;
+    --sidebar-primary: 270 65% 45%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 36 20% 94%;
-    --sidebar-accent-foreground: 25 20% 8%;
-    --sidebar-border: 30 12% 88%;
-    --sidebar-ring: 38 75% 50%;
+    --sidebar-accent: 45 15% 94%;
+    --sidebar-accent-foreground: 240 15% 10%;
+    --sidebar-border: 260 8% 88%;
+    --sidebar-ring: 270 65% 45%;
   }
 }
 
@@ -112,17 +114,17 @@
   }
 
   h1, h2, h3, h4, h5 {
-    @apply font-serif tracking-tight;
+    @apply font-heading tracking-tight;
   }
-  
+
   .recipe-card {
     @apply transition-all duration-200 hover:shadow-lg;
   }
-  
+
   .recipe-card-image {
     @apply aspect-[4/3] w-full object-cover rounded-t transition-transform duration-200;
   }
-  
+
   .recipe-card:hover .recipe-card-image {
     @apply scale-[1.03];
   }
@@ -130,46 +132,123 @@
   .category-badge {
     @apply inline-flex items-center rounded px-2 py-0.5 text-xs font-medium transition-colors;
   }
-  
+
   .meal-plan-day {
     @apply border rounded-md p-2 min-h-[100px] bg-card shadow-sm;
   }
-  
+
   .meal-slot {
     @apply p-2 rounded border-dashed border-2 my-1 min-h-[40px] transition-colors;
   }
 }
 
-/* Cinematic intro animations */
+/* Mardi Gras cinematic effects */
 @layer utilities {
   .text-gradient-gold {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(38, 75%, 50%), hsl(24, 70%, 45%), hsl(38, 75%, 60%));
+    background-image: linear-gradient(135deg, hsl(45, 90%, 55%), hsl(35, 85%, 48%), hsl(50, 95%, 62%));
+  }
+
+  .text-gradient-purple {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(270, 65%, 45%), hsl(285, 60%, 55%), hsl(260, 70%, 50%));
   }
 
   .text-gradient-green {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(142, 45%, 38%), hsl(142, 55%, 48%));
+    background-image: linear-gradient(135deg, hsl(155, 60%, 35%), hsl(155, 65%, 48%));
   }
 
-  .bg-warm-gradient {
-    background: linear-gradient(180deg, hsl(25, 20%, 6%) 0%, hsl(25, 16%, 10%) 100%);
+  .text-gradient-carnival {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(270, 65%, 45%), hsl(45, 90%, 55%), hsl(155, 60%, 40%));
+  }
+
+  .bg-bayou-gradient {
+    background: linear-gradient(180deg, hsl(240, 15%, 8%) 0%, hsl(260, 12%, 12%) 50%, hsl(240, 15%, 6%) 100%);
+  }
+
+  .bg-mardi-gras {
+    background: linear-gradient(135deg, hsl(270, 30%, 12%) 0%, hsl(240, 15%, 8%) 40%, hsl(155, 15%, 10%) 100%);
+  }
+
+  .border-purple {
+    border-color: hsl(270, 65%, 40%);
   }
 
   .border-gold {
-    border-color: hsl(38, 75%, 50%);
+    border-color: hsl(45, 90%, 55%);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(102, 51, 153, 0.2), 0 0 60px rgba(102, 51, 153, 0.08);
   }
 
   .glow-gold {
-    box-shadow: 0 0 20px rgba(196, 155, 52, 0.15), 0 0 60px rgba(196, 155, 52, 0.05);
+    box-shadow: 0 0 20px rgba(230, 190, 40, 0.2), 0 0 60px rgba(230, 190, 40, 0.08);
   }
 
   .glow-green {
-    box-shadow: 0 0 20px rgba(56, 142, 80, 0.15), 0 0 60px rgba(56, 142, 80, 0.05);
+    box-shadow: 0 0 20px rgba(40, 142, 80, 0.2), 0 0 60px rgba(40, 142, 80, 0.08);
+  }
+
+  .glow-magenta {
+    box-shadow: 0 0 20px rgba(200, 60, 140, 0.2), 0 0 60px rgba(200, 60, 140, 0.08);
+  }
+
+  /* Particle float animation */
+  @keyframes float-particle {
+    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+    50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+  }
+
+  .animate-float {
+    animation: float-particle 3s ease-in-out infinite;
+  }
+
+  /* Mask reveal for headings */
+  @keyframes mask-reveal {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0 0 0); }
+  }
+
+  .animate-mask-reveal {
+    animation: mask-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Text scramble effect */
+  @keyframes text-scramble {
+    0% { opacity: 0; filter: blur(8px); transform: translateY(4px); }
+    50% { opacity: 0.5; filter: blur(4px); }
+    100% { opacity: 1; filter: blur(0); transform: translateY(0); }
+  }
+
+  .animate-text-scramble {
+    animation: text-scramble 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Kinetic marquee */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
   }
 
   /* Senior-friendly: larger tap targets, higher contrast on hover */
   .senior-tap {
     @apply min-h-[48px] min-w-[48px];
+  }
+
+  /* Allergen warning pulse */
+  @keyframes allergen-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+  }
+
+  .animate-allergen-pulse {
+    animation: allergen-pulse 2s ease-in-out infinite;
   }
 }

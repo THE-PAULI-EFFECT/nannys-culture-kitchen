@@ -15,6 +15,7 @@ const LatinRecipeDetail = lazy(() => import("./pages/LatinRecipeDetail"));
 const CateringAgent = lazy(() => import("./pages/CateringAgent"));
 const NannyDashboard = lazy(() => import("./pages/NannyDashboard"));
 const InteractiveMenu = lazy(() => import("./pages/InteractiveMenu"));
+const ChefDashboard = lazy(() => import("./pages/ChefDashboard"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -46,6 +47,7 @@ const App = () => (
             <Route path="/catering" element={<CateringAgent />} />
             <Route path="/dashboard" element={<NannyDashboard />} />
             <Route path="/menu" element={<InteractiveMenu />} />
+            <Route path="/chef-dashboard" element={<ChefDashboard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

@@ -71,7 +71,7 @@ const RecipeDetail = () => {
         </div>
         
         <div className="space-y-4">
-          <h1 className="text-3xl md:text-4xl font-bold font-serif">{RECIPE.title}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold font-heading">{RECIPE.title}</h1>
           <p className="text-muted-foreground">{RECIPE.description}</p>
           
           <div className="flex flex-wrap gap-4 items-center text-sm">
@@ -228,3 +228,4 @@ const RecipeDetail = () => {
 };
 
 export default RecipeDetail;
+

@@ -41,7 +41,7 @@ const InteractiveMenu = () => {
             <ArrowLeft className="h-4 w-4" />
             <span className="text-sm">Back</span>
           </Link>
-          <span className="font-serif text-lg font-semibold text-gradient-gold">Interactive Menu</span>
+          <span className="font-heading text-lg font-semibold text-gradient-gold">Interactive Menu</span>
           <div className="flex items-center gap-2">
             <Button variant="ghost" size="icon" onClick={() => setShowQR(!showQR)} className="text-muted-foreground">
               <QrCode className="h-4 w-4" />
@@ -103,7 +103,7 @@ const InteractiveMenu = () => {
           className="text-center mb-10 print:mb-6"
         >
           <p className="text-xs tracking-[0.3em] uppercase text-brand-gold/50 font-mono mb-2">Est. Washington, Louisiana</p>
-          <h1 className="font-serif text-3xl md:text-4xl font-bold text-gradient-gold">Nanny's Culture Kitchen</h1>
+          <h1 className="font-heading text-3xl md:text-4xl font-bold text-gradient-gold">Nanny's Culture Kitchen</h1>
           <p className="text-sm text-muted-foreground mt-2">100% Plant-Based Soul Food & Latin Cuisine</p>
           <p className="text-xs text-muted-foreground mt-1 italic">One Sacred Exception: Nanny's Southern Fried Chicken</p>
         </motion.div>
@@ -111,7 +111,7 @@ const InteractiveMenu = () => {
         {/* Soul Food Section */}
         {(menuType === "combined" || menuType === "soul-food") && (
           <section className="mb-12">
-            <h2 className="font-serif text-xl font-semibold text-brand-gold mb-6 border-b border-brand-gold/20 pb-2">
+            <h2 className="font-heading text-xl font-semibold text-brand-gold mb-6 border-b border-brand-gold/20 pb-2">
               Soul Food Kitchen
             </h2>
             {Object.entries(groupedSoulFood).map(([category, recipes]) => (
@@ -143,7 +143,7 @@ const InteractiveMenu = () => {
         {/* Latin Kitchen Section */}
         {(menuType === "combined" || menuType === "latin") && (
           <section className="mb-12">
-            <h2 className="font-serif text-xl font-semibold text-brand-green mb-6 border-b border-brand-green/20 pb-2">
+            <h2 className="font-heading text-xl font-semibold text-brand-green mb-6 border-b border-brand-green/20 pb-2">
               Latin Kitchen
             </h2>
             {Object.entries(groupedLatin).map(([state, recipes]) => (
@@ -169,10 +169,10 @@ const InteractiveMenu = () => {
 
         {/* Footer */}
         <div className="text-center py-8 border-t border-border/50 print:border-t-0">
-          <p className="font-serif text-sm italic text-muted-foreground">
-            "Hospitality is present when something happens for you. It is absent when something happens to you."
+          <p className="font-heading text-sm italic text-muted-foreground">
+            "Food is how we take care of people. Every plate tells a story, every recipe carries a memory."
           </p>
-          <p className="text-xs text-muted-foreground mt-1">— Danny Meyer</p>
+          <p className="text-xs text-muted-foreground mt-1">— Nanny's Culture Kitchen</p>
         </div>
       </div>
     </div>
@@ -180,3 +180,4 @@ const InteractiveMenu = () => {
 };
 
 export default InteractiveMenu;
+

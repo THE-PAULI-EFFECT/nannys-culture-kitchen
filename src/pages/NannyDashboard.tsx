@@ -52,7 +52,7 @@ const NannyDashboard = () => {
             <ArrowLeft className="h-4 w-4" />
             <span className="text-sm">Home</span>
           </Link>
-          <span className="font-serif text-lg font-semibold text-gradient-gold">Dashboard</span>
+          <span className="font-heading text-lg font-semibold text-gradient-gold">Dashboard</span>
           <div className="w-16" />
         </div>
       </header>
@@ -65,7 +65,7 @@ const NannyDashboard = () => {
           transition={{ duration: 0.4 }}
         >
           <p className="text-xs tracking-[0.2em] uppercase text-brand-gold/50 font-mono">Senior Dashboard</p>
-          <h1 className="font-serif text-2xl md:text-3xl font-bold mt-1">
+          <h1 className="font-heading text-2xl md:text-3xl font-bold mt-1">
             Good Morning, Nanny
           </h1>
           <p className="text-sm text-muted-foreground mt-1">Here's your kitchen at a glance.</p>
@@ -103,7 +103,7 @@ const NannyDashboard = () => {
             className="rounded-lg border border-border/50 bg-card p-5"
           >
             <div className="flex items-center justify-between mb-4">
-              <h2 className="font-serif text-base font-semibold flex items-center gap-2">
+              <h2 className="font-heading text-base font-semibold flex items-center gap-2">
                 <Heart className="h-4 w-4 text-red-400" />
                 Health Monitor
               </h2>
@@ -144,7 +144,7 @@ const NannyDashboard = () => {
             className="rounded-lg border border-border/50 bg-card p-5"
           >
             <div className="flex items-center justify-between mb-4">
-              <h2 className="font-serif text-base font-semibold flex items-center gap-2">
+              <h2 className="font-heading text-base font-semibold flex items-center gap-2">
                 <ChefHat className="h-4 w-4 text-brand-gold" />
                 Recent Catering Orders
               </h2>
@@ -176,7 +176,7 @@ const NannyDashboard = () => {
             transition={{ delay: 0.5, duration: 0.4 }}
             className="rounded-lg border border-border/50 bg-card p-5"
           >
-            <h2 className="font-serif text-base font-semibold flex items-center gap-2 mb-4">
+            <h2 className="font-heading text-base font-semibold flex items-center gap-2 mb-4">
               <ShieldCheck className="h-4 w-4 text-brand-green" />
               Ghost Kitchen Compliance
             </h2>
@@ -211,7 +211,7 @@ const NannyDashboard = () => {
             transition={{ delay: 0.6, duration: 0.4 }}
             className="rounded-lg border border-border/50 bg-card p-5"
           >
-            <h2 className="font-serif text-base font-semibold mb-4">Quick Actions</h2>
+            <h2 className="font-heading text-base font-semibold mb-4">Quick Actions</h2>
             <div className="grid grid-cols-2 gap-3">
               {[
                 { label: "Soul Food Kitchen", to: "/soul-food", icon: Utensils, color: "text-brand-gold" },
@@ -240,3 +240,4 @@ const NannyDashboard = () => {
 };
 
 export default NannyDashboard;
+

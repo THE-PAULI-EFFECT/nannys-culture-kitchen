@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import CinematicIntro from "@/components/intro/CinematicIntro";
 import ChefSelector from "@/components/intro/ChefSelector";
-import { MessageSquare, Heart, MapPin, Leaf } from "lucide-react";
+import { MeshGradientHero, KineticMarquee, CurtainReveal } from "@/components/cinematic";
+import { MessageSquare, Heart, MapPin, Leaf, ChefHat } from "lucide-react";
 
 const FEATURES = [
   {
@@ -20,7 +21,7 @@ const FEATURES = [
   {
     icon: MessageSquare,
     title: "AI Catering Agent",
-    description: "Danny Meyer-inspired hospitality. Plan events, get quotes, and coordinate menus.",
+    description: "AI-powered concierge. Plan events, get quotes, and coordinate menus.",
   },
   {
     icon: Heart,
@@ -45,13 +46,16 @@ const Index = () => {
         <header className="sticky top-0 z-40 border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
           <div className="mx-auto max-w-6xl flex h-14 items-center justify-between px-4">
             <Link to="/" className="flex items-center gap-2">
-              <span className="font-serif text-lg font-semibold text-gradient-gold">Nanny's</span>
+              <span className="font-heading text-lg font-semibold text-gradient-gold">Nanny's</span>
               <span className="text-xs text-muted-foreground tracking-wider uppercase hidden sm:inline">Culture Kitchen</span>
             </Link>
             <nav className="flex items-center gap-6">
               <Link to="/soul-food" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Soul Food</Link>
               <Link to="/latin-kitchen" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Latin Kitchen</Link>
               <Link to="/catering" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Catering</Link>
+              <Link to="/chef-dashboard" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+                <ChefHat className="h-3 w-3" />Chef
+              </Link>
               <Link to="/dashboard" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Dashboard</Link>
             </nav>
           </div>
@@ -59,7 +63,10 @@ const Index = () => {
 
         {/* Hero */}
         <section className="relative overflow-hidden">
-          <div className="mx-auto max-w-6xl px-4 pt-20 pb-16 text-center">
+          <div className="absolute inset-0 opacity-40 pointer-events-none">
+            <MeshGradientHero className="h-full"><div /></MeshGradientHero>
+          </div>
+          <div className="relative mx-auto max-w-6xl px-4 pt-20 pb-16 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={introComplete ? { opacity: 1, y: 0 } : {}}
@@ -68,7 +75,7 @@ const Index = () => {
               <p className="text-xs tracking-[0.25em] uppercase text-brand-gold/60 font-mono mb-4">
                 Washington, Louisiana → The World
               </p>
-              <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
+              <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
                 <span className="text-gradient-gold">Nanny's</span>{" "}
                 <span className="text-foreground">Culture Kitchen</span>
               </h1>
@@ -105,7 +112,7 @@ const Index = () => {
                 return (
                   <div key={feature.title} className="space-y-2">
                     <Icon className="h-5 w-5 text-brand-gold/70" />
-                    <h3 className="font-serif text-base font-medium">{feature.title}</h3>
+                    <h3 className="font-heading text-base font-medium">{feature.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
                   </div>
                 );
@@ -114,19 +121,27 @@ const Index = () => {
           </div>
         </section>
 
+        {/* Marquee */}
+        <section className="border-t border-border/50 py-4 overflow-hidden">
+          <KineticMarquee
+            items={[
+              "Gumbo", "Birria Tacos", "Mac & Cheese", "Mole Negro", "Cornbread",
+              "Tamales", "Collard Greens", "Tres Leches", "Sweet Potato Pie", "Pozole",
+              "Jambalaya", "Elote", "Red Beans & Rice", "Churros", "Peach Cobbler",
+            ]}
+            speed={30}
+            separator="✦"
+          />
+        </section>
+
         {/* Nanny's Story */}
         <section className="border-t border-border/50">
           <div className="mx-auto max-w-3xl px-4 py-20 text-center">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
+            <CurtainReveal>
               <p className="text-xs tracking-[0.25em] uppercase text-brand-copper/50 font-mono mb-4">
                 The Story
               </p>
-              <h2 className="font-serif text-2xl md:text-3xl font-semibold leading-snug">
+              <h2 className="font-heading text-2xl md:text-3xl font-semibold leading-snug">
                 This kitchen is named for my mother — <span className="text-gradient-gold">Nanny</span>.
               </h2>
               <p className="mt-6 text-sm text-muted-foreground leading-relaxed max-w-2xl mx-auto">
@@ -141,7 +156,7 @@ const Index = () => {
               >
                 Enter the Kitchen →
               </Link>
-            </motion.div>
+            </CurtainReveal>
           </div>
         </section>
 
@@ -164,4 +179,5 @@ const Index = () => {
 };
 
 export default Index;
+
 

@@ -12,9 +12,9 @@ interface Message {
   timestamp: Date;
 }
 
-const DANNY_MEYER_GREETING = `Welcome! I'm your Nanny's Culture Kitchen catering consultant. 
+const NANNYS_GREETING = `Welcome! I'm your Nanny's Culture Kitchen catering consultant. 
 
-Inspired by Danny Meyer's philosophy of Enlightened Hospitality — we believe the way you make people feel is just as important as what you serve.
+At Nanny's, we believe the way you make people feel is just as important as what you serve. Food is how we take care of people.
 
 How can I help you plan an unforgettable event? I can assist with:
 • **Event planning** — from intimate dinners to large celebrations
@@ -35,7 +35,7 @@ const CateringAgent = () => {
     {
       id: "welcome",
       role: "assistant",
-      content: DANNY_MEYER_GREETING,
+      content: NANNYS_GREETING,
       timestamp: new Date(),
     },
   ]);
@@ -97,7 +97,7 @@ const CateringAgent = () => {
             <span className="text-sm">Back</span>
           </Link>
           <div className="text-center">
-            <span className="font-serif text-lg font-semibold text-gradient-gold">Catering Agent</span>
+            <span className="font-heading text-lg font-semibold text-gradient-gold">Catering Agent</span>
             <p className="text-[10px] text-muted-foreground font-mono">Enlightened Hospitality</p>
           </div>
           <div className="w-16" />
@@ -286,7 +286,7 @@ All pricing includes:
 Would you like a detailed proposal for your specific event?`;
   }
 
-  return `Thank you for your question! As Danny Meyer says, "The road to success is paved with mistakes well handled."
+  return `Thank you for your question! At Nanny's, we believe every great event starts with a great conversation.
 
 I'd love to help you plan the perfect event. Can you tell me:
 1. **How many guests** are you expecting?
@@ -298,3 +298,4 @@ The more details you share, the better I can tailor the experience.`;
 }
 
 export default CateringAgent;
+

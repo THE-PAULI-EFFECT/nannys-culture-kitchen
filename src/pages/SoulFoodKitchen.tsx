@@ -35,7 +35,7 @@ const SoulFoodKitchen = () => {
             <ArrowLeft className="h-4 w-4" />
             <span className="text-sm">Back</span>
           </Link>
-          <span className="font-serif text-lg font-semibold text-gradient-gold">Soul Food Kitchen</span>
+          <span className="font-heading text-lg font-semibold text-gradient-gold">Soul Food Kitchen</span>
           <div className="w-16" />
         </div>
       </header>
@@ -52,7 +52,7 @@ const SoulFoodKitchen = () => {
             <p className="text-xs tracking-[0.25em] uppercase text-brand-gold/50 font-mono mb-3">
               Washington, Louisiana Roots
             </p>
-            <h1 className="font-serif text-3xl md:text-5xl font-bold">
+            <h1 className="font-heading text-3xl md:text-5xl font-bold">
               <span className="text-gradient-gold">Soul Food</span> Kitchen
             </h1>
             <p className="mt-3 text-sm text-muted-foreground max-w-lg mx-auto">
@@ -168,7 +168,7 @@ function RecipeCard({ recipe, index }: { recipe: Recipe; index: number }) {
             </div>
           )}
           <div className="absolute bottom-3 left-3">
-            <p className="text-white font-serif text-lg font-semibold leading-tight drop-shadow-lg">
+            <p className="text-white font-heading text-lg font-semibold leading-tight drop-shadow-lg">
               {recipe.title}
             </p>
           </div>
@@ -195,3 +195,4 @@ function RecipeCard({ recipe, index }: { recipe: Recipe; index: number }) {
 }
 
 export default SoulFoodKitchen;
+
