@@ -1,11 +1,13 @@
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import CinematicIntro from "@/components/intro/CinematicIntro";
 import ChefSelector from "@/components/intro/ChefSelector";
+import VideoHero from "@/components/VideoHero";
 import { MeshGradientHero, KineticMarquee, CurtainReveal } from "@/components/cinematic";
-import { MessageSquare, Heart, MapPin, Leaf, ChefHat } from "lucide-react";
+import { MessageSquare, Heart, MapPin, Leaf, ChefHat, ShoppingBag, FileText } from "lucide-react";
+import { initMotion, revealOnScroll } from "@/lib/motion";
 
 const FEATURES = [
   {
@@ -37,6 +39,13 @@ const Index = () => {
     setIntroComplete(true);
   }, []);
 
+  useEffect(() => {
+    if (introComplete) {
+      initMotion();
+      revealOnScroll("[data-reveal]");
+    }
+  }, [introComplete]);
+
   return (
     <>
       {!introComplete && <CinematicIntro onComplete={handleIntroComplete} />}
@@ -53,6 +62,12 @@ const Index = () => {
               <Link to="/soul-food" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Soul Food</Link>
               <Link to="/latin-kitchen" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Latin Kitchen</Link>
               <Link to="/catering" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Catering</Link>
+              <Link to="/store" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+                <ShoppingBag className="h-3 w-3" />Store
+              </Link>
+              <Link to="/resources" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+                <FileText className="h-3 w-3" />Grants
+              </Link>
               <Link to="/chef-dashboard" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
                 <ChefHat className="h-3 w-3" />Chef
               </Link>
@@ -62,35 +77,19 @@ const Index = () => {
         </header>
 
         {/* Hero */}
-        <section className="relative overflow-hidden">
-          <div className="absolute inset-0 opacity-40 pointer-events-none">
-            <MeshGradientHero className="h-full"><div /></MeshGradientHero>
-          </div>
-          <div className="relative mx-auto max-w-6xl px-4 pt-20 pb-16 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={introComplete ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <p className="text-xs tracking-[0.25em] uppercase text-brand-gold/60 font-mono mb-4">
-                Washington, Louisiana → The World
-              </p>
-              <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
-                <span className="text-gradient-gold">Nanny's</span>{" "}
-                <span className="text-foreground">Culture Kitchen</span>
-              </h1>
-              <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-                Soul food and Latin flavors, reimagined plant-based.
-                Honoring tradition with every dish — and one sacred exception.
-              </p>
-            </motion.div>
+        <VideoHero
+          headline="Nanny's Culture Kitchen"
+          subtitle="Soul food and Latin flavors, reimagined plant-based. Honoring tradition with every dish — and one sacred exception."
+        />
 
-            {/* Chef Selector */}
+        {/* Chef Selector */}
+        <section className="border-t border-border/50">
+          <div className="mx-auto max-w-6xl px-4 py-14">
             <motion.div
-              className="mt-14"
+              className="text-center"
               initial={{ opacity: 0 }}
               animate={introComplete ? { opacity: 1 } : {}}
-              transition={{ duration: 0.5, delay: 0.5 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
             >
               <ChefSelector />
             </motion.div>
@@ -168,8 +167,9 @@ const Index = () => {
             </p>
             <div className="flex items-center gap-4 text-xs text-muted-foreground">
               <Link to="/catering" className="hover:text-foreground transition-colors">Catering</Link>
+              <Link to="/store" className="hover:text-foreground transition-colors">Store</Link>
+              <Link to="/resources" className="hover:text-foreground transition-colors">Grants</Link>
               <Link to="/dashboard" className="hover:text-foreground transition-colors">Dashboard</Link>
-              <Link to="/dashboard" className="hover:text-foreground transition-colors">Health Hub</Link>
             </div>
           </div>
         </footer>

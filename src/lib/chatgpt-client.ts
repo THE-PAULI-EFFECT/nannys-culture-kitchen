@@ -1,4 +1,8 @@
+import { humanize } from "./humanizer";
+
 const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY || "";
+const MERCURY_API_KEY = import.meta.env.VITE_MERCURY_API_KEY || "";
+const MERCURY_BASE_URL = "https://api.inceptionlabs.ai/v1";
 
 interface ChatMessage {
   role: "system" | "user" | "assistant";
@@ -26,43 +30,69 @@ export async function chatWithGPT(
   userMessage: string,
   conversationHistory: ChatMessage[] = []
 ): Promise<string> {
+  // Try Mercury 2 first (fast, cheap), fall back to GPT-4-turbo
+  if (MERCURY_API_KEY) {
+    try {
+      const result = await callLLM(userMessage, conversationHistory, {
+        apiKey: MERCURY_API_KEY,
+        baseUrl: MERCURY_BASE_URL,
+        model: "mercury-coder-small",
+      });
+      return humanize(result);
+    } catch (err) {
+      console.warn("Mercury 2 failed, falling back to GPT-4-turbo:", err);
+    }
+  }
+
   if (!OPENAI_API_KEY) {
     return "API key not configured. Please set VITE_OPENAI_API_KEY in your environment.";
   }
 
   try {
-    const messages: ChatMessage[] = [
-      { role: "system", content: COOKING_SYSTEM_PROMPT },
-      ...conversationHistory,
-      { role: "user", content: userMessage },
-    ];
-
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${OPENAI_API_KEY}`,
-      },
-      body: JSON.stringify({
-        model: "gpt-4-turbo", // Use gpt-4-turbo or gpt-3.5-turbo
-        messages,
-        max_tokens: 1024,
-        temperature: 0.7,
-      }),
+    const result = await callLLM(userMessage, conversationHistory, {
+      apiKey: OPENAI_API_KEY,
+      baseUrl: "https://api.openai.com/v1",
+      model: "gpt-4-turbo",
     });
-
-    if (!response.ok) {
-      const error = await response.json();
-      console.error("OpenAI API error:", error);
-      return `Sorry, something went wrong: ${error.error?.message || "Unknown error"}`;
-    }
-
-    const data = await response.json();
-    return data.choices?.[0]?.message?.content || "No response generated.";
+    return humanize(result);
   } catch (error) {
     console.error("Chat error:", error);
     return "Sorry, I encountered an error. Please try again.";
   }
+}
+
+async function callLLM(
+  userMessage: string,
+  conversationHistory: ChatMessage[],
+  config: { apiKey: string; baseUrl: string; model: string }
+): Promise<string> {
+  const messages: ChatMessage[] = [
+    { role: "system", content: COOKING_SYSTEM_PROMPT },
+    ...conversationHistory,
+    { role: "user", content: userMessage },
+  ];
+
+  const response = await fetch(`${config.baseUrl}/chat/completions`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${config.apiKey}`,
+    },
+    body: JSON.stringify({
+      model: config.model,
+      messages,
+      max_tokens: 1024,
+      temperature: 0.7,
+    }),
+  });
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.error?.message || `API error: ${response.status}`);
+  }
+
+  const data = await response.json();
+  return data.choices?.[0]?.message?.content || "No response generated.";
 }
 
 // Format conversation history for API

@@ -20,6 +20,8 @@ const EarningsPage = lazy(() => import("./pages/EarningsPage"));
 const OperationsPage = lazy(() => import("./pages/OperationsPage"));
 const InteractiveMenu = lazy(() => import("./pages/InteractiveMenu"));
 const ChefDashboard = lazy(() => import("./pages/ChefDashboard"));
+const ResourcesPage = lazy(() => import("./pages/ResourcesPage"));
+const StorePage = lazy(() => import("./pages/StorePage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -56,6 +58,8 @@ const App = () => (
               <Route path="/operations" element={<OperationsPage />} />
               <Route path="/menu" element={<InteractiveMenu />} />
               <Route path="/chef-dashboard" element={<ChefDashboard />} />
+              <Route path="/resources" element={<ResourcesPage />} />
+              <Route path="/store" element={<StorePage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
