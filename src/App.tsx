@@ -5,6 +5,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LanguageProvider } from "@/lib/language-context";
 
 // Pages — lazy loaded for performance
 const Index = lazy(() => import("./pages/Index"));
@@ -14,6 +15,9 @@ const LatinKitchen = lazy(() => import("./pages/LatinKitchen"));
 const LatinRecipeDetail = lazy(() => import("./pages/LatinRecipeDetail"));
 const CateringAgent = lazy(() => import("./pages/CateringAgent"));
 const NannyDashboard = lazy(() => import("./pages/NannyDashboard"));
+const HealthHub = lazy(() => import("./pages/HealthHub"));
+const EarningsPage = lazy(() => import("./pages/EarningsPage"));
+const OperationsPage = lazy(() => import("./pages/OperationsPage"));
 const InteractiveMenu = lazy(() => import("./pages/InteractiveMenu"));
 const ChefDashboard = lazy(() => import("./pages/ChefDashboard"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -34,24 +38,29 @@ function PageLoader() {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/soul-food" element={<SoulFoodKitchen />} />
-            <Route path="/soul-food/:id" element={<SoulFoodRecipeDetail />} />
-            <Route path="/latin-kitchen" element={<LatinKitchen />} />
-            <Route path="/latin-kitchen/:id" element={<LatinRecipeDetail />} />
-            <Route path="/catering" element={<CateringAgent />} />
-            <Route path="/dashboard" element={<NannyDashboard />} />
-            <Route path="/menu" element={<InteractiveMenu />} />
-            <Route path="/chef-dashboard" element={<ChefDashboard />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
+      <LanguageProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/soul-food" element={<SoulFoodKitchen />} />
+              <Route path="/soul-food/:id" element={<SoulFoodRecipeDetail />} />
+              <Route path="/latin-kitchen" element={<LatinKitchen />} />
+              <Route path="/latin-kitchen/:id" element={<LatinRecipeDetail />} />
+              <Route path="/catering" element={<CateringAgent />} />
+              <Route path="/dashboard" element={<NannyDashboard />} />
+              <Route path="/health" element={<HealthHub />} />
+              <Route path="/earnings" element={<EarningsPage />} />
+              <Route path="/operations" element={<OperationsPage />} />
+              <Route path="/menu" element={<InteractiveMenu />} />
+              <Route path="/chef-dashboard" element={<ChefDashboard />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </LanguageProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
