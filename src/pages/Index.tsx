@@ -169,7 +169,7 @@ const Index = () => {
             <div className="flex items-center gap-4 text-xs text-muted-foreground">
               <Link to="/catering" className="hover:text-foreground transition-colors">Catering</Link>
               <Link to="/dashboard" className="hover:text-foreground transition-colors">Dashboard</Link>
-              <Link to="/health" className="hover:text-foreground transition-colors">Health Hub</Link>
+              <Link to="/dashboard" className="hover:text-foreground transition-colors">Health Hub</Link>
             </div>
           </div>
         </footer>
